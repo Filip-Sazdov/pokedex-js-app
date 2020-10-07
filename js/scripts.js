@@ -15,3 +15,24 @@ let pokemonList = [
 		types: ["normal", "flying"],
 	},
 ];
+
+for (let i = 0; i < pokemonList.length; i++) {
+	let convertToMeters = function (height) {
+		let feet = Number(pokemonList[i].height.match(/(\d+)'/)[1]);
+		let inches = Number(pokemonList[i].height.match(/(\d\d)"$/)[1]);
+		return ((feet * 12 + inches) / 39.37).toFixed(2);
+	};
+	if (convertToMeters(pokemonList[i].height) < 1.25) {
+		document.write(
+			`<h1>${pokemonList[i].name} has a height of ${convertToMeters(
+				pokemonList[i].height
+			)} meters</h1>`
+		);
+	} else {
+		document.write(
+			`<h1>${pokemonList[i].name} has a height of ${convertToMeters(
+				pokemonList[i].height
+			)} meters - Wow, that's big!</h1>`
+		);
+	}
+}
