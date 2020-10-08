@@ -1,5 +1,8 @@
 body {
     background-color: #331E38;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: 20px;
 }
 
 h1 {
