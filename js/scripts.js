@@ -40,10 +40,21 @@ let pokemonRepository = (function () {
 	function getAll() {
 		return pokemonList;
 	}
+	function findByName(userNameInput) {
+		let result = pokemonList.filter(
+			(pokemon) => pokemon.name === userNameInput
+		);
+		if (result.length === 0) {
+			return `There is no such pokemon by the name of ${userNameInput} in this repository!`;
+		} else {
+			return result;
+		}
+	}
 
 	return {
 		add: add,
 		getAll: getAll,
+		findByName: findByName,
 	};
 })();
 
