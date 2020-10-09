@@ -17,18 +17,23 @@ let pokemonRepository = (function () {
 		},
 	];
 	function checkKeys(item) {
-		if (Object.keys(item) == ["name", "height", "types"]) {
-			return true;
-		} else {
-			return false;
+		let itemKeys = Object.keys(item);
+		let comparisonArray = ["name", "height", "types"];
+		for (let i = 0; i < itemKeys.length; i++) {
+			if (itemKeys[i] !== comparisonArray[i]) {
+				return false;
+			}
 		}
+		return true;
 	}
 
 	function add(item) {
-		if (typeof item == "object") {
+		if (typeof item == "object" && checkKeys(item)) {
 			pokemonList.push(item);
 		} else {
-			console.log("Please input an Object data type!!!");
+			console.log(
+				"Please input an Object data type with the required properties!!!"
+			);
 		}
 	}
 
