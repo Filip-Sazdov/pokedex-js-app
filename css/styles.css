@@ -1,12 +1,42 @@
-body {
-    background-color: #331E38;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(200px, 1fr));
-    gap: 20px;
+:root {
+    --button-background: #2e86ab;
+    --fiery-rose: #f45b69;
+    --background: #331e38;
+    --list-color: #f7f0f5;
+    --text-color: #f18f01;
 }
 
-h1 {
-    background-color: #F45B69;
-    color: #F7F0F5;
+body {
+    background-color: var(--background);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.pokemon-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1rem;
+    background-color: var(--list-color);
+    width: 80%;
+    margin: 0 auto;
+    list-style-type: none;
+    /* justify-content: space-between; */
+    justify-items: center;
+    border-radius: 15px;
+    border: 1px solid var(--fiery-rose);
+}
+
+.button-template {
+    background-color: var(--button-background);
+    border-radius: 15px;
+    width: 400px;
+    height: 10vh;
+    /*will need to adjust this after image and other ocontent is added to button.*/
+    color: var(--text-color);
+    font-size: 2em;
+    border: 1px solid var(--background);
+}
+
+.button-template:hover, .button-template:focus {
+    background-color: var(--fiery-rose);
+    color: var(--list-color) border: 1px solid var(var(--button-background));
 }

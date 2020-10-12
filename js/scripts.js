@@ -59,23 +59,35 @@ let pokemonRepository = (function () {
 })();
 
 pokemonRepository.getAll().forEach((pokemon) => {
-	let feet = Number(pokemon.height.match(/(\d+)'/)[1]);
-	let inches = Number(pokemon.height.match(/(\d\d)"$/)[1]);
-	let total = ((feet * 12 + inches) / 39.37).toFixed(2);
-	let size;
-
-	if (total < 1) {
-		size = "It's a small pokemon.";
-	} else if (total >= 1 && total < 1.25) {
-		size = "This is a medium size pokemon.";
-	} else {
-		size = "Wow, that's big!";
-	}
-
-	document.write(
-		`<h1>${pokemon.name} has a height of ${total} meters - ${size}</h1>`
-	);
+	let listOfPokemons = document.querySelector(".pokemon-list");
+	let listItem = document.createElement("li");
+	let button = document.createElement("button");
+	button.innerText = pokemon.name;
+	console.log(button.innerText);
+	button.classList.add("button-template");
+	console.log(button.classList);
+	listItem.appendChild(button);
+	listOfPokemons.appendChild(listItem);
 });
+
+// pokemonRepository.getAll().forEach((pokemon) => {
+// 	let feet = Number(pokemon.height.match(/(\d+)'/)[1]);
+// 	let inches = Number(pokemon.height.match(/(\d\d)"$/)[1]);
+// 	let total = ((feet * 12 + inches) / 39.37).toFixed(2);
+// 	let size;
+
+// 	if (total < 1) {
+// 		size = "It's a small pokemon.";
+// 	} else if (total >= 1 && total < 1.25) {
+// 		size = "This is a medium size pokemon.";
+// 	} else {
+// 		size = "Wow, that's big!";
+// 	}
+
+// 	document.write(
+// 		`<h1>${pokemon.name} has a height of ${total} meters - ${size}</h1>`
+// 	);
+// });
 
 // for (let i = 0; i < pokemonList.length; i++) {
 // 	let convertToMeters = function (height) {
