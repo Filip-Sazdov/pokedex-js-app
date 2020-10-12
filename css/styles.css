@@ -26,7 +26,6 @@ h1 {
     width: 80%;
     margin: 0 auto;
     list-style-type: none;
-    /* justify-content: space-between; */
     justify-items: center;
     border-radius: 15px;
     border: 1px solid var(--fiery-rose);

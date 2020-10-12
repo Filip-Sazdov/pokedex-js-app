@@ -50,6 +50,13 @@ let pokemonRepository = (function () {
 	// 	}
 	//   }
 
+	// Gurpreet's suggestion to my solution
+	// function checkKeys(item) {
+	//     let itemKeys = Object.keys(item).sort();
+	//     let comparisonArray = ["name", "height", "types"].sort();
+	//     return itemKeys === comparisonArray
+	// }
+
 	function getAll() {
 		return pokemonList;
 	}
@@ -71,6 +78,10 @@ let pokemonRepository = (function () {
 		button.classList.add("button-template");
 		listItem.appendChild(button);
 		listOfPokemons.appendChild(listItem);
+		button.addEventListener("click", showDetails);
+	}
+	function showDetails(pokemon) {
+		console.log(pokemon);
 	}
 
 	return {
@@ -78,6 +89,7 @@ let pokemonRepository = (function () {
 		getAll: getAll,
 		findByName: findByName,
 		addListItem: addListItem,
+		showDetails: showDetails,
 	};
 })();
 
