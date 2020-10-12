@@ -36,6 +36,19 @@ let pokemonRepository = (function () {
 			);
 		}
 	}
+	// Sammy's solution
+	// function add(pokemon) {
+	// 	if (
+	// 	  typeof pokemon === "object" &&
+	// 	  "name" in pokemon &&
+	// 	  "height" in pokemon &&
+	// 	  "types" in pokemon
+	// 	) {
+	// 	  repository.push(pokemon);
+	// 	} else {
+	// 	  console.log("pokemon is not correct");
+	// 	}
+	//   }
 
 	function getAll() {
 		return pokemonList;
@@ -50,26 +63,30 @@ let pokemonRepository = (function () {
 			return result;
 		}
 	}
+	function addListItem(pokemon) {
+		let listOfPokemons = document.querySelector(".pokemon-list");
+		let listItem = document.createElement("li");
+		let button = document.createElement("button");
+		button.innerText = pokemon.name;
+		button.classList.add("button-template");
+		listItem.appendChild(button);
+		listOfPokemons.appendChild(listItem);
+	}
 
 	return {
 		add: add,
 		getAll: getAll,
 		findByName: findByName,
+		addListItem: addListItem,
 	};
 })();
 
 pokemonRepository.getAll().forEach((pokemon) => {
-	let listOfPokemons = document.querySelector(".pokemon-list");
-	let listItem = document.createElement("li");
-	let button = document.createElement("button");
-	button.innerText = pokemon.name;
-	console.log(button.innerText);
-	button.classList.add("button-template");
-	console.log(button.classList);
-	listItem.appendChild(button);
-	listOfPokemons.appendChild(listItem);
+	pokemonRepository.addListItem(pokemon);
 });
 
+// Code from tasks 4 and 5
+// ----------------------------------------------------
 // pokemonRepository.getAll().forEach((pokemon) => {
 // 	let feet = Number(pokemon.height.match(/(\d+)'/)[1]);
 // 	let inches = Number(pokemon.height.match(/(\d\d)"$/)[1]);
@@ -89,6 +106,8 @@ pokemonRepository.getAll().forEach((pokemon) => {
 // 	);
 // });
 
+// Code from first 3 tasks
+// ---------------------------------------------------
 // for (let i = 0; i < pokemonList.length; i++) {
 // 	let convertToMeters = function (height) {
 // 		let feet = Number(pokemonList[i].height.match(/(\d+)'/)[1]);
