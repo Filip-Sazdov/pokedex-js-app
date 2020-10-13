@@ -14,27 +14,32 @@ body {
 h1 {
     color: var(--text-color);
     margin: 0 auto;
-    width: 60vw;
+    width: 80vw;
+    height: 10vh;
     text-align: center;
+    line-height: 10vh;
+    font-size: 3rem;
 }
 
 .pokemon-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 1rem;
+    gap: 2rem;
     background-color: var(--list-color);
-    width: 80%;
+    max-width: 80%;
+    min-width: 400px;
     margin: 0 auto;
     list-style-type: none;
     justify-items: center;
     border-radius: 15px;
     border: 1px solid var(--fiery-rose);
+    padding: 10vh 0;
 }
 
 .button-template {
     background-color: var(--button-background);
     border-radius: 15px;
-    width: 400px;
+    width: 300px;
     height: 10vh;
     /*will need to adjust this after image and other ocontent is added to button.*/
     color: var(--text-color);
