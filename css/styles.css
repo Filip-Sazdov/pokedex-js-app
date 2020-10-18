@@ -41,7 +41,7 @@ h1 {
     border-radius: 15px;
     width: 300px;
     height: 10vh;
-    /*will need to adjust this after image and other ocontent is added to button.*/
+    /*will need to adjust this after image and other content is added to button.*/
     color: var(--text-color);
     font-size: 2em;
     border: 1px solid var(--background);
