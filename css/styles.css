@@ -11,6 +11,25 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+header {
+    margin: 0 auto;
+    width: 80vw;
+    height: 5vh;
+    line-height: 5vh;
+}
+
+#myInput {
+    color: var(--text-color);
+    border-radius: 15px;
+    border: 1px solid var(--fiery-rose);
+    float: right;
+    text-align: center;
+    font-size: 1.3rem;
+    margin-top: 10px;
+    display: block;
+    height: 3vh;
+}
+
 h1 {
     color: var(--text-color);
     margin: 0 auto;
@@ -18,7 +37,8 @@ h1 {
     height: 10vh;
     text-align: center;
     line-height: 10vh;
-    font-size: 3rem;
+    font-size: 4rem;
+    padding-bottom: 5vh;
 }
 
 .pokemon-list {
@@ -44,7 +64,7 @@ h1 {
     /*will need to adjust this after image and other content is added to button.*/
     color: var(--text-color);
     font-size: 2em;
-    border: 1px solid var(--background);
+    border: 1px solid var(--fiery-rose);
 }
 
 .button-template:hover, .button-template:focus {
