@@ -34,6 +34,7 @@ let pokemonRepository = (function () {
 	function addListItem(pokemon) {
 		let listOfPokemons = document.querySelector(".pokemon-list");
 		let listItem = document.createElement("li");
+		listItem.classList.add("list");
 		let button = document.createElement("button");
 		button.innerText = pokemon.name;
 		button.classList.add("button-template");
@@ -46,9 +47,9 @@ let pokemonRepository = (function () {
 
 	function showDetails(pokemon) {
 		loadDetails(pokemon).then(function () {
-		  console.log(pokemon);
+			console.log(pokemon);
 		});
-	  }
+	}
 
 	function loadList() {
 		return fetch(apiUrl)
@@ -78,7 +79,14 @@ let pokemonRepository = (function () {
 				// Now we add the details to the item
 				item.imageUrl = details.sprites.front_default;
 				item.height = details.height;
-				item.types = details.types;
+				item.types = [];
+				details.types.forEach(function (itemType) {
+					item.types.push(itemType.type.name);
+				});
+				item.abilities = [];
+				details.abilities.forEach(function (itemAbility) {
+					item.abilities.push(itemAbility.ability.name);
+				});
 			})
 			.catch(function (e) {
 				console.error(e);
@@ -101,3 +109,22 @@ pokemonRepository.loadList().then(function () {
 		pokemonRepository.addListItem(pokemon);
 	});
 });
+
+function myFunction() {
+	let input, filter, ul, li, a, txtValue;
+	input = document.getElementById("myInput");
+	filter = input.value.toUpperCase();
+	ul = document.getElementById("myUL");
+	li = ul.querySelectorAll(".list");
+	console.log(li);
+
+	for (i = 0; i < li.length; i++) {
+		a = li[i].getElementsByTagName("button")[0];
+		txtValue = a.textContent || a.innerText;
+		if (txtValue.toUpperCase().indexOf(filter) > -1) {
+			li[i].style.display = "";
+		} else {
+			li[i].style.display = "none";
+		}
+	}
+}
