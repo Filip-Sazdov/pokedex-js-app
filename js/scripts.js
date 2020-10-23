@@ -33,12 +33,20 @@ let pokemonRepository = (function () {
 		}
 	}
 	function addListItem(pokemon) {
+		
 		let listOfPokemons = document.querySelector(".pokemon-list");
 		let listItem = document.createElement("li");
-		listItem.classList.add("list");
+		listItem.classList.add("list-item");
 		let button = document.createElement("button");
 		button.innerText = pokemon.name;
 		button.classList.add("button-template");
+
+		//I need help with this. I can't access the image at details.sprites.other.dream_world.front_default;
+		let buttonImage = document.createElement("img");
+		buttonImage.src = //details.sprites.other.dream_world.front_default//;
+		buttonImage.classList.add("button-image");
+		listItem.appendChild(buttonImage);
+
 		listItem.appendChild(button);
 		listOfPokemons.appendChild(listItem);
 		button.addEventListener("click", function (event) {
@@ -68,7 +76,7 @@ let pokemonRepository = (function () {
 		let closeButtonElement = document.createElement("button");
 		closeButtonElement.classList.add("modal-close");
 		closeButtonElement.innerText = "Close";
-		closeButtonElement.addEventListener('click', hideModal);
+		closeButtonElement.addEventListener("click", hideModal);
 
 		let titleElement = document.createElement("h1");
 		titleElement.innerText = name;
@@ -76,7 +84,7 @@ let pokemonRepository = (function () {
 
 		let spriteElement = document.createElement("img");
 		spriteElement.classList.add("modal-img");
-		spriteElement.src = imageUrl;
+		spriteElement.src = imageUrl.dream_world.front_default;
 
 		let capitalisedName = name[0].toUpperCase().concat(name.slice(1));
 		let stringifiedTypes = types.join(", and ");
@@ -139,7 +147,7 @@ let pokemonRepository = (function () {
 			})
 			.then(function (details) {
 				// Now we add the details to the item
-				item.imageUrl = details.sprites.other.dream_world.front_default;
+				item.imageUrl = details.sprites.other; //.dream_world.front_default//
 				item.height = details.height;
 				item.types = [];
 				details.types.forEach(function (itemType) {

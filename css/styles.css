@@ -42,6 +42,11 @@ h1 {
     padding-bottom: 5vh;
 }
 
+.list-item{
+    border: 1px solid red;
+    width: 300px;
+}
+
 .pokemon-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -73,6 +78,10 @@ h1 {
     background-color: var(--fiery-rose);
     color: var(--list-color);
     border: 1px solid var(--button-background);
+}
+
+.button-image{
+    width: 300px;
 }
 
 #modal-container {
