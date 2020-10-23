@@ -23,11 +23,12 @@ header {
     border-radius: 15px;
     border: 1px solid var(--fiery-rose);
     float: right;
-    text-align: center;
+    text-align: left;
     font-size: 1.3rem;
     margin-top: 10px;
     display: block;
     height: 3vh;
+    text-transform: capitalize;
 }
 
 h1 {
@@ -65,10 +66,76 @@ h1 {
     color: var(--text-color);
     font-size: 2em;
     border: 1px solid var(--fiery-rose);
+    text-transform: capitalize;
 }
 
 .button-template:hover, .button-template:focus {
     background-color: var(--fiery-rose);
     color: var(--list-color);
     border: 1px solid var(--button-background);
+}
+
+#modal-container {
+    display: none;
+}
+
+#modal-container.is-visible {
+    position: fixed;
+    padding: 20px;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    /* to show it above other content */
+    z-index: 999;
+    /* to allow scrolling if the screen is not high enough*/
+    overflow: auto;
+    /* this is used to center the modal */
+    display: grid;
+    text-align: center;
+}
+
+.text-transform {
+    text-transform: capitalize;
+}
+
+.modal {
+    margin: 10vh auto;
+    box-sizing: border-box;
+    background: var(--list-color);
+    padding: 15px;
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    border-radius: 15px;
+    height: 80vh;
+}
+
+.modal-close {
+    float: right;
+    -webkit-appearance: none;
+    border: 1px solid var(--fiery-rose);
+    background-color: var(--button-background);
+    border-radius: 15px;
+    color: var(--text-color);
+}
+
+.modal h1 {
+    margin: 3vh auto 2vh auto;
+   
+    width: 100%;
+    clear: right;
+}
+
+.modal p {
+    margin-top: 6vh;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    text-align: justify;
+}
+
+.modal-img {
+    width: 50%;
 }
