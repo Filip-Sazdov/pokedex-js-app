@@ -1,6 +1,6 @@
 let pokemonRepository = (function () {
 	let pokemonList = [];
-	let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
+	let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=20";
 	let modalContainer = document.querySelector("#modal-container");
 
 	function add(pokemon) {
@@ -33,39 +33,34 @@ let pokemonRepository = (function () {
 		}
 	}
 	function addListItem(pokemon) {
-		
-		let listOfPokemons = document.querySelector(".pokemon-list");
-		let listItem = document.createElement("li");
-		listItem.classList.add("list-item");
-		let button = document.createElement("button");
-		button.innerText = pokemon.name;
-		button.classList.add("button-template");
+		pokemonRepository.loadDetails(pokemon).then(function () {
+			let listOfPokemons = document.querySelector(".pokemon-list");
+			let listItem = document.createElement("li");
+			listItem.classList.add("list-item");
+			let button = document.createElement("button");
+			button.innerText = pokemon.name;
+			button.classList.add("button-template");
 
-		//I need help with this. I can't access the image at details.sprites.other.dream_world.front_default;
-		let buttonImage = document.createElement("img");
-		buttonImage.src = //details.sprites.other.dream_world.front_default//;
-		buttonImage.classList.add("button-image");
-		listItem.appendChild(buttonImage);
+			//I need help with this. I can't access the image at details.sprites.other.dream_world.front_default;
+			let buttonImage = document.createElement("img");
+			buttonImage.setAttribute("src", pokemon.imageUrlAnimation);
+			buttonImage.classList.add("button-image");
+			listItem.appendChild(buttonImage);
 
-		listItem.appendChild(button);
-		listOfPokemons.appendChild(listItem);
-		button.addEventListener("click", function (event) {
-			showDetails(pokemon);
+			listItem.appendChild(button);
+			listOfPokemons.appendChild(listItem);
+			button.addEventListener("click", function (event) {
+				showDetails(pokemon);
+			});
 		});
 	}
 
 	function showDetails(pokemon) {
 		loadDetails(pokemon).then(function () {
-			showModal(
-				pokemon.name,
-				pokemon.height,
-				pokemon.types,
-				pokemon.imageUrl,
-				pokemon.abilities
-			);
+			showModal(pokemon);
 		});
 	}
-	function showModal(name, height, types, imageUrl, abilities) {
+	function showModal(pokemon) {
 		// Clear all existing modal content
 		modalContainer.innerHTML = "";
 
@@ -79,19 +74,32 @@ let pokemonRepository = (function () {
 		closeButtonElement.addEventListener("click", hideModal);
 
 		let titleElement = document.createElement("h1");
-		titleElement.innerText = name;
+		titleElement.innerText = pokemon.name;
 		titleElement.classList.add("text-transform");
 
 		let spriteElement = document.createElement("img");
 		spriteElement.classList.add("modal-img");
-		spriteElement.src = imageUrl.dream_world.front_default;
+		spriteElement.src = pokemon.imageUrl;
 
-		let capitalisedName = name[0].toUpperCase().concat(name.slice(1));
-		let stringifiedTypes = types.join(", and ");
-		let stringifiedAbilities = abilities.join(", and ");
+		let capitalisedName = pokemon.name[0]
+			.toUpperCase()
+			.concat(pokemon.name.slice(1));
+		let stringifiedTypes = pokemon.types.join(", and ");
+		let stringifiedAbilities = pokemon.abilities.join(", and ");
 
+		let correctHeight = function(){
+			heightFromApi = pokemon.height.toString();
+
+			if (heightFromApi.length < 2) {
+				heightFromApi = "0." + heightFromApi;
+				return heightFromApi;
+			} else {
+				heightFromApi = heightFromApi[0] + "." + heightFromApi[1];
+			}
+			return heightFromApi;
+		}
 		let contentElement = document.createElement("p");
-		contentElement.innerText = `${capitalisedName} is a Pokemon of type[s]: ${stringifiedTypes} and has a height of ${height} feet. Its abilities are: ${stringifiedAbilities}.`;
+		contentElement.innerText = `${capitalisedName} is a Pokemon of type[s]: ${stringifiedTypes} and has a height of ${correctHeight()} meters. Its abilities are: ${stringifiedAbilities}.`;
 
 		modal.appendChild(closeButtonElement);
 		modal.appendChild(titleElement);
@@ -147,7 +155,11 @@ let pokemonRepository = (function () {
 			})
 			.then(function (details) {
 				// Now we add the details to the item
-				item.imageUrl = details.sprites.other; //.dream_world.front_default//
+				item.imageUrl = details.sprites.other.dream_world.front_default;
+				item.imageUrlAnimation =
+					details.sprites.versions["generation-v"][
+						"black-white"
+					].animated.front_default;
 				item.height = details.height;
 				item.types = [];
 				details.types.forEach(function (itemType) {
