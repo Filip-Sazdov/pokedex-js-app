@@ -87,7 +87,7 @@ let pokemonRepository = (function () {
 		let stringifiedTypes = pokemon.types.join(", and ");
 		let stringifiedAbilities = pokemon.abilities.join(", and ");
 
-		let correctHeight = function(){
+		let correctHeight = function () {
 			heightFromApi = pokemon.height.toString();
 
 			if (heightFromApi.length < 2) {
@@ -97,7 +97,7 @@ let pokemonRepository = (function () {
 				heightFromApi = heightFromApi[0] + "." + heightFromApi[1];
 			}
 			return heightFromApi;
-		}
+		};
 		let contentElement = document.createElement("p");
 		contentElement.innerText = `${capitalisedName} is a Pokemon of type[s]: ${stringifiedTypes} and has a height of ${correctHeight()} meters. Its abilities are: ${stringifiedAbilities}.`;
 
@@ -192,13 +192,12 @@ pokemonRepository.loadList().then(function () {
 	});
 });
 
-function myFunction() {
+function searchByName() {
 	let input, filter, ul, li, a, txtValue;
 	input = document.getElementById("myInput");
 	filter = input.value.toUpperCase();
 	ul = document.getElementById("myUL");
-	li = ul.querySelectorAll(".list");
-	console.log(li);
+	li = ul.querySelectorAll(".list-item");
 
 	for (i = 0; i < li.length; i++) {
 		a = li[i].getElementsByTagName("button")[0];
@@ -210,3 +209,5 @@ function myFunction() {
 		}
 	}
 }
+
+document.getElementById("myInput").addEventListener("keyup", searchByName);

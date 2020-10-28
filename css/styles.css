@@ -23,15 +23,15 @@ header {
     border-radius: 15px;
     border: 1px solid var(--fiery-rose);
     float: right;
-    text-align: left;
+    text-align: center;
     font-size: 1.3rem;
-    margin-top: 10px;
-    display: block;
+    margin-top: 20px;
     height: 3vh;
     text-transform: capitalize;
 }
 
 h1 {
+    clear: both;
     color: var(--text-color);
     margin: 0 auto;
     width: 80vw;
