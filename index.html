@@ -5,19 +5,41 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pokédex JS App</title>
         <link rel="stylesheet" href="css/normalize.css">
-        <!-- <link rel="stylesheet" href="css/styles.css" type="text/css"> -->
-        <link rel="stylesheet" href="dist/styles.min.css" type="text/css">
+        <link rel="stylesheet" href="css/styles.css" type="text/css">
+        <!-- <link rel="stylesheet" href="dist/styles.min.css" type="text/css"> -->
     </head>
     <body>
         <header>
-            <input type="text" id="myInput"
-                placeholder="Search for Pokemon" title="Type in a name">
-            <button id="clear-search" class="button-template">Clear Search</button>
+            <div class="link-container">
+                <a id='portfolio-link'
+                    href="https://filip-sazdov.github.io/portfolio/">Filip's
+                    Portfolio</a>
+            </div>
+            <div class="search-container">
+                <input type="text" id="myInput"
+                    placeholder="Search for Pokemon" title="Type in a name">
+                <button id="clear-search" class="button-template">Clear Search</button>
+            </div>
         </header>
         <main>
 
             <h1>Pokédex</h1>
 
+            <p class="description">The purpose of this website is to demonstrate
+                my
+                proficiency in working with an API, HTML, CSS, and vanilla
+                JavaScript. The API chosen is the RESTful Pokémon API found at
+                <a href="https://pokeapi.co/">https://pokeapi.co/</a>. I know
+                this is nothing original since a lot of bootcamps promote this
+                type of project, including mine, but I guess it's better to look
+                at any content as opposed to placeholders. The intent is for a
+                recruiter to learn a little about pokemon while at the same time
+                realizing I am worth an interview. There exist two more versions
+                of this Pokédex in the wild built by me, one created with
+                vanilla JavaScript and Bootstrap and another created with jQuery
+                and Bootstrap. They live
+                <a class="link to work page of portfolio"
+                    href="https://github.com/Filip-Sazdov">here</a>.</p>
             <ul class="pokemon-list" id="myUL"></ul>
             <div id="modal-container"></div>
 

@@ -9,16 +9,35 @@
 body {
     background-color: var(--background);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--text-color);
 }
 
 header {
     margin: 0 auto;
     width: 80vw;
     height: 10vh;
-    display: grid;
-    grid-template-columns: minmax(300px, 1fr);
-    gap: 0.5em;
-    justify-items: right;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.link-container {
+    display: flex;
+}
+
+#portfolio-link {
+    align-self: center;
+    border-radius: 15px;
+    border: 1px solid var(--fiery-rose);
+    font-size: 1.3rem;
+    color: var(--text-color);
+    padding: 2px 20px;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 #myInput {
@@ -31,17 +50,27 @@ header {
     height: 3vh;
     width: 250px;
     text-transform: capitalize;
+    box-sizing: border-box;
 }
 
 h1 {
-    color: var(--text-color);
     margin: 0 auto;
     width: 80vw;
     height: 10vh;
     text-align: center;
     line-height: 10vh;
     font-size: 4rem;
-    padding-bottom: 5vh;
+}
+
+.description {
+    background: var(--list-background-color);
+    padding: 2rem;
+    width: 80%;
+    border-radius: 15px;
+    margin: 0 auto 20px auto;
+    border: 5px solid var(--fiery-rose);
+    font-size: 1.4rem;
+    text-align: justify;
 }
 
 .pokemon-list {
@@ -56,7 +85,7 @@ h1 {
     justify-items: center;
     border-radius: 15px;
     border: 5px solid var(--fiery-rose);
-    padding: 10vh 0;
+    padding: 2rem;
 }
 
 .list-item {
