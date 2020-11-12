@@ -1,1 +1,185 @@
-:root{--button-background:#2e86ab;--fiery-rose:#f45b69;--background:#331e38;--list-background-color:#f7f0f5;--text-color:#f18f01}body{background-color:var(--background);font-family:'Gill Sans','Gill Sans MT',Calibri,'Trebuchet MS',sans-serif;color:var(--text-color)}header{margin:0 auto;width:80vw;height:10vh;display:flex;flex-wrap:wrap;justify-content:space-between}.link-container{display:flex}#portfolio-link{align-self:center;border-radius:15px;border:1px solid var(--fiery-rose);font-size:1.3rem;color:var(--text-color);padding:2px 20px}.search-container{display:flex;flex-direction:column;justify-content:space-evenly}#myInput{color:var(--text-color);border-radius:15px;border:1px solid var(--fiery-rose);text-align:center;font-size:1.3rem;margin-top:10px;height:3vh;width:250px;text-transform:capitalize;box-sizing:border-box}h1{margin:0 auto;width:80vw;height:10vh;text-align:center;line-height:10vh;font-size:4rem}.description{background:var(--list-background-color);padding:2rem;width:80%;border-radius:15px;margin:0 auto 20px auto;border:5px solid var(--fiery-rose);font-size:1.4rem;text-align:justify}.pokemon-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;background-color:var(--list-background-color);max-width:80%;min-width:320px;margin:0 auto;list-style-type:none;justify-items:center;border-radius:15px;border:5px solid var(--fiery-rose);padding:2rem}.list-item{width:300px;text-align:center;border:5px solid var(--fiery-rose);border-radius:15px}.button-template{background-color:var(--button-background);border-radius:15px;width:300px;height:10vh;color:var(--text-color);font-size:2em;text-transform:capitalize}.button-template:focus,.button-template:hover{background-color:var(--fiery-rose);color:var(--list-background-color);border:1px solid var(--button-background);cursor:pointer}#clear-search{border-radius:15px;border:1px solid var(--fiery-rose);font-size:1.3rem;height:3vh;width:250px}.button-image{height:100px}#modal-container{display:none}#modal-container.is-visible{position:fixed;padding:20px;box-sizing:border-box;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);z-index:999;overflow:auto;display:grid;text-align:center}.text-transform{text-transform:capitalize}.modal{margin:10vh auto;box-sizing:border-box;background:var(--list-background-color);padding:15px;width:100%;max-width:700px;text-align:center;border-radius:15px;max-height:100vh}.modal-close{float:right;border:1px solid var(--fiery-rose);background-color:var(--button-background);border-radius:15px;color:var(--text-color)}.modal h1{margin:3vh auto 2vh auto;width:100%;clear:right}.modal p{margin-top:6vh;font-size:1.8rem;color:var(--text-color);text-align:justify}.modal-img{width:50%}
+:root {
+    --button-background: #2e86ab;
+    --fiery-rose: #f45b69;
+    --background: #331e38;
+    --list-background-color: #f7f0f5;
+    --text-color: #f18f01
+}
+
+body {
+    background-color: var(--background);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--text-color)
+}
+
+header {
+    margin: 0 auto;
+    width: 80vw;
+    height: 10vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
+}
+
+.link-container {
+    display: flex
+}
+
+#portfolio-link {
+    align-self: center;
+    border-radius: 15px;
+    border: 1px solid var(--fiery-rose);
+    font-size: 1.3rem;
+    color: var(--text-color);
+    padding: 2px 20px
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly
+}
+
+#myInput {
+    color: var(--text-color);
+    border-radius: 15px;
+    border: 1px solid var(--fiery-rose);
+    text-align: center;
+    font-size: 1.3rem;
+    margin-top: 10px;
+    height: 3vh;
+    width: 250px;
+    text-transform: capitalize;
+    box-sizing: border-box
+}
+
+h1 {
+    margin: 0 auto;
+    width: 80vw;
+    height: 10vh;
+    text-align: center;
+    line-height: 10vh;
+    font-size: 4rem
+}
+
+.description {
+    background: var(--list-background-color);
+    padding: 2rem;
+    width: 80%;
+    border-radius: 15px;
+    margin: 0 auto 20px auto;
+    border: 5px solid var(--fiery-rose);
+    font-size: 1.3rem;
+    text-align: center
+}
+
+.pokemon-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    background-color: var(--list-background-color);
+    max-width: 80%;
+    min-width: 320px;
+    margin: 0 auto;
+    list-style-type: none;
+    justify-items: center;
+    border-radius: 15px;
+    border: 5px solid var(--fiery-rose);
+    padding: 2rem
+}
+
+.list-item {
+    width: 300px;
+    text-align: center;
+    border: 5px solid var(--fiery-rose);
+    border-radius: 15px
+}
+
+.button-template {
+    background-color: var(--button-background);
+    border-radius: 15px;
+    width: 300px;
+    height: 10vh;
+    color: var(--text-color);
+    font-size: 2em;
+    text-transform: capitalize
+}
+
+.button-template:focus, .button-template:hover {
+    background-color: var(--fiery-rose);
+    color: var(--list-background-color);
+    border: 1px solid var(--button-background);
+    cursor: pointer
+}
+
+#clear-search {
+    border-radius: 15px;
+    border: 1px solid var(--fiery-rose);
+    font-size: 1.3rem;
+    height: 3vh;
+    width: 250px
+}
+
+.button-image {
+    height: 100px
+}
+
+#modal-container {
+    display: none
+}
+
+#modal-container.is-visible {
+    position: fixed;
+    padding: 20px;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .7);
+    z-index: 999;
+    overflow: auto;
+    display: grid;
+    text-align: center
+}
+
+.text-transform {
+    text-transform: capitalize
+}
+
+.modal {
+    margin: 10vh auto;
+    box-sizing: border-box;
+    background: var(--list-background-color);
+    padding: 15px;
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    border-radius: 15px;
+    max-height: 100vh
+}
+
+.modal-close {
+    float: right;
+    border: 1px solid var(--fiery-rose);
+    background-color: var(--button-background);
+    border-radius: 15px;
+    color: var(--text-color)
+}
+
+.modal h1 {
+    margin: 3vh auto 2vh auto;
+    width: 100%;
+    clear: right
+}
+
+.modal p {
+    margin-top: 6vh;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    text-align: justify
+}
+
+.modal-img {
+    width: 50%
+}
